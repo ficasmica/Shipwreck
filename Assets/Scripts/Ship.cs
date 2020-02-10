@@ -57,7 +57,7 @@ public class Ship : MonoBehaviour
             }
             else{
                 DeadEnemy deadEnemyClone = Instantiate(deadEnemy, transform.position, transform.rotation) as DeadEnemy;
-                Destroy(gameObject);
+                speed = 0f;
             }
         }
     }

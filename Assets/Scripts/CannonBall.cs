@@ -6,9 +6,11 @@ public class CannonBall : MonoBehaviour
 {
     public float speed;
     public float lifeTime;
+    public Explosion explosion;
+    private Animation anim;
 
     void Start(){
-
+        anim = GetComponent<Animation>();
     }
 
     void Update(){
@@ -24,6 +26,7 @@ public class CannonBall : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D col){
         if (col.gameObject.tag != "gun" && col.gameObject.tag != "detector"){
+            Explosion explosionClone = Instantiate(explosion, transform.position, transform.rotation) as Explosion;
             Destroy(gameObject);
         }
     }
