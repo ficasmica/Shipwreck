@@ -10,11 +10,12 @@ GameObject:
   m_Component:
   - component: {fileID: 2045280791845084096}
   - component: {fileID: 2045280791845084097}
-  - component: {fileID: 600717017139355579}
   - component: {fileID: -3370922118311192608}
-  m_Layer: 0
+  - component: {fileID: 6691673995330711738}
+  - component: {fileID: 4728767882486539018}
+  m_Layer: 9
   m_Name: Ship
-  m_TagString: Untagged
+  m_TagString: player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -84,52 +85,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!60 &600717017139355579
-PolygonCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2045280791845084158}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.66, y: 1.13}
-    newSize: {x: 0.66, y: 1.13}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: 0.3081582, y: 0.080266476}
-      - {x: 0.29815823, y: 0.12842476}
-      - {x: 0.20184158, y: 0.20746088}
-      - {x: 0.108244404, y: 0.45215118}
-      - {x: 0.000963822, y: 0.56864035}
-      - {x: -0.094518, y: 0.46767616}
-      - {x: -0.14539577, y: 0.37951803}
-      - {x: -0.21136586, y: 0.20214748}
-      - {x: -0.29271948, y: 0.12478435}
-      - {x: -0.30815837, y: 0.06759024}
-      - {x: -0.32271937, y: 0.031489015}
-      - {x: -0.30543888, y: -0.1313597}
-      - {x: -0.26728058, y: -0.3214891}
-      - {x: -0.19999999, y: -0.33499998}
-      - {x: -0.19649358, y: -0.33461}
-      - {x: -0.1109208, y: -0.49771947}
-      - {x: 0.0009640008, y: -0.5759209}
-      - {x: 0.12188479, y: -0.48855412}
-      - {x: 0.19728059, y: -0.32311523}
-      - {x: 0.27008602, y: -0.31043887}
-      - {x: 0.31907922, y: 0.037014008}
 --- !u!114 &-3370922118311192608
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -146,6 +101,52 @@ MonoBehaviour:
     type: 3}
   rightGun: {fileID: 2778102514972621647}
   leftGun: {fileID: 8759281043191588631}
+  wheel: {fileID: 0}
+  speed: 1
+  sprites:
+  - {fileID: 21300000, guid: e5e112932980edc4985fb49ea5f95809, type: 3}
+  - {fileID: 21300000, guid: 008b5cd126a9b304dbc7b32744a581fe, type: 3}
+  - {fileID: 21300000, guid: 25796d32447d51741a687f06a9409ab9, type: 3}
+  - {fileID: 21300000, guid: 9154d69877d52c746bc17ea6295accaf, type: 3}
+  deadEnemy: {fileID: 7410940262745377601, guid: e9760a5db7f52aa4ca9715c22977d85c,
+    type: 3}
+--- !u!70 &6691673995330711738
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2045280791845084158}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 0.38, y: 1.04}
+  m_Direction: 0
+--- !u!50 &4728767882486539018
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2045280791845084158}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &2108983283458943320
 GameObject:
   m_ObjectHideFlags: 0
@@ -155,7 +156,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2778102514972621647}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: RightGun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -185,7 +186,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8759281043191588631}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: LeftGun
   m_TagString: Untagged
   m_Icon: {fileID: 0}

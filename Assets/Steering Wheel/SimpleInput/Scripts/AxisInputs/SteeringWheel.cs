@@ -17,7 +17,7 @@ namespace SimpleInputNamespace
 		public float wheelReleasedSpeed = 350f;
 		public float valueMultiplier = 1f;
 
-		private float wheelAngle = 0f;
+		public float wheelAngle = 0f;
 		private float wheelPrevAngle = 0f;
 
 		private bool wheelBeingHeld = false;
