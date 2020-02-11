@@ -110,6 +110,13 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 9154d69877d52c746bc17ea6295accaf, type: 3}
   deadEnemy: {fileID: 7410940262745377601, guid: e9760a5db7f52aa4ca9715c22977d85c,
     type: 3}
+  timeBetweenShots: 3
+  fireButtonLeft: {fileID: 0}
+  fireButtonRight: {fileID: 0}
+  ammo: 4
+  ammoLabel: {fileID: 0}
+  ammoBarrel: {fileID: 3215093079557223233, guid: 86e89485811839a41bdf463d94290496,
+    type: 3}
 --- !u!70 &6691673995330711738
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

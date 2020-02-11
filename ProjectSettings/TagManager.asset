@@ -9,6 +9,9 @@ TagManager:
   - gun
   - detector
   - enemy
+  - static
+  - ammo
+  - island
   layers:
   - Default
   - TransparentFX
@@ -20,7 +23,7 @@ TagManager:
   - 
   - detectorLayer
   - playerLayer
-  - 
+  - staticLayer
   - 
   - 
   - 

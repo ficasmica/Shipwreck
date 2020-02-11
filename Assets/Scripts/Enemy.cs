@@ -20,6 +20,9 @@ public class Enemy : MonoBehaviour
     public float timeBetweenShots;
     private bool canShoot = true;
     public DeadEnemy deadEnemy;
+    public GameObject ammo;
+    private bool isWrecked = false;
+    public Explosion explosion;
 
     void Start(){
         rb = GetComponent<Rigidbody2D>();
@@ -56,13 +59,13 @@ public class Enemy : MonoBehaviour
     void FixedUpdate(){
         transform.Translate(Vector3.up * speed * Time.deltaTime, Space.Self);
         
-        if (isChasing){
+        if (isChasing && !isWrecked){
             Vector3 toTarget = player.transform.position - transform.position;
             Quaternion targetRotation = Quaternion.LookRotation(Vector3.forward, toTarget);
             transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, turnSpeed * Time.deltaTime);
         }
         
-        if (!isChasing){
+        if (!isChasing && !isWrecked){
             if (rightDetected){
                 transform.Rotate(Vector3.forward * turnSpeed * Time.deltaTime);
             }
@@ -74,13 +77,33 @@ public class Enemy : MonoBehaviour
         if (rightDetected == false && leftDetected == false){
             isChasing = true;
         }
+
+        if (isWrecked){
+            speed = Mathf.Lerp(speed, 0.0f, 0.025f);
+            if (speed <= 0.01f){
+                speed = 0f;
+            }
+        }
     }
 
     void OnTriggerEnter2D(Collider2D col){
         if (col.gameObject.tag == "cannonBall"){
-            Debug.Log("hit");
             DeadEnemy deadEnemyClone = Instantiate(deadEnemy, transform.position, transform.rotation) as DeadEnemy;
+            GameObject ammoClone = Instantiate(ammo, transform.position + transform.TransformDirection(-Vector3.up) * 0.75f, Quaternion.identity);
             Destroy(gameObject);
+        }
+
+        else if (col.gameObject.tag == "static"){
+            isWrecked = true;
+            isChasing = false;
+        }
+
+        else if (col.gameObject.tag == "ammo"){
+            Explosion explosionClone = Instantiate(explosion, col.gameObject.transform.position, Quaternion.identity);
+            DeadEnemy deadEnemyClone = Instantiate(deadEnemy, transform.position, transform.rotation) as DeadEnemy;
+            GameObject ammoClone = Instantiate(ammo, transform.position + transform.TransformDirection(-Vector3.up) * 0.75f, Quaternion.identity);
+            Destroy(gameObject);
+            Destroy(col.gameObject);
         }
     }
 }
