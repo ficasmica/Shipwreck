@@ -71,6 +71,9 @@ public class Ship : MonoBehaviour
             wheelRot = 0.0f;
         }
 
+        if (ammo > 4){
+            ammo = 4;
+        }
         ammoLabel.text = "Ammo: " + ammo;
     }
 
