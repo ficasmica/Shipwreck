@@ -121,7 +121,7 @@ public class Ship : MonoBehaviour
     }
 
     void OnTriggerEnter2D(Collider2D col){
-        if (col.gameObject.tag == "cannonBall"){
+        if (col.gameObject.tag == "cannonBall" || col.gameObject.tag == "enemy"){
             if (n != 2){
                 n += 1;
                 sprtRend.sprite = sprites[n];
