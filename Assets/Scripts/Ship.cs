@@ -16,7 +16,7 @@ public class Ship : MonoBehaviour
     private SpriteRenderer sprtRend;
     private int n = 0;
     public DeadEnemy deadEnemy;
-    private bool isWrecked = false;
+    public bool isWrecked;
     private float shootTimer;
     public float timeBetweenShots;
     private bool canShoot = true;
@@ -30,6 +30,7 @@ public class Ship : MonoBehaviour
         sprtRend = GetComponent<SpriteRenderer>();
         sprtRend.sprite = sprites[n];
         shootTimer = timeBetweenShots;
+        isWrecked = false;
     }
 
     void Update(){
@@ -124,14 +125,15 @@ public class Ship : MonoBehaviour
     }
 
     void OnTriggerEnter2D(Collider2D col){
-        if (col.gameObject.tag == "cannonBall" || col.gameObject.tag == "enemy"){
+        if (col.gameObject.tag == "cannonBall"){
             if (n != 2){
                 n += 1;
                 sprtRend.sprite = sprites[n];
             }
-            else{
-                DeadEnemy deadEnemyClone = Instantiate(deadEnemy, transform.position, transform.rotation) as DeadEnemy;
+            else if (n == 2){
+                sprtRend.sprite = sprites[3];
                 isWrecked = true;
+                canShoot = false;
             }
         }
 

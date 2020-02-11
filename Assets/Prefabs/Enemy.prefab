@@ -380,7 +380,7 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.29, y: 1.04}
+  m_Size: {x: 0.44, y: 1.04}
   m_Direction: 0
 --- !u!50 &4076048410334290835
 Rigidbody2D:
@@ -390,14 +390,14 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6621358709707349714}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_AngularDrag: 0
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -415,6 +415,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d2c681c03e32a24d93ebb6dbde81b59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: -3370922118311192608, guid: 89c1dab251f868b438f1ea5bc389975b, type: 3}
   speed: 0.5
   turnSpeed: 40
   isChasing: 1
@@ -432,6 +433,8 @@ MonoBehaviour:
   ammo: {fileID: 3215093079557223233, guid: 86e89485811839a41bdf463d94290496, type: 3}
   explosion: {fileID: 7683787825902111488, guid: e39618dca515ba84797c68139cabaf74,
     type: 3}
+  spawner: {fileID: 0}
+  sprt: {fileID: 21300000, guid: f750e227f8f3bfc4095242b3f43c165c, type: 3}
 --- !u!1 &7620140720864749118
 GameObject:
   m_ObjectHideFlags: 0

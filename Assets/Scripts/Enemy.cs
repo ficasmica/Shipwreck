@@ -1,10 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Enemy : MonoBehaviour
 {
-    private GameObject player;
+    public GameObject player;
     public float speed;
     private Rigidbody2D rb;
     public float turnSpeed;
@@ -23,10 +24,17 @@ public class Enemy : MonoBehaviour
     public GameObject ammo;
     private bool isWrecked = false;
     public Explosion explosion;
+    public GameObject spawner;
+    private EnemySpawner spawnerScript;
+    private SpriteRenderer sprtRend;
+    public Sprite sprt;
+    private float deathTime = 5f;
 
     void Start(){
+        sprtRend = GetComponent<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
-
+        spawner = GameObject.FindGameObjectWithTag("suicide");
+        spawnerScript = spawner.GetComponent<EnemySpawner>();
         player = GameObject.FindGameObjectWithTag("player");
         shootTimer = timeBetweenShots;
     }
@@ -83,27 +91,35 @@ public class Enemy : MonoBehaviour
             if (speed <= 0.01f){
                 speed = 0f;
             }
+            deathTime -= Time.deltaTime;
+            if (deathTime <= 0f){
+                Destroy(gameObject);
+            }
         }
     }
 
     void OnTriggerEnter2D(Collider2D col){
         if (col.gameObject.tag == "cannonBall"){
-            DeadEnemy deadEnemyClone = Instantiate(deadEnemy, transform.position, transform.rotation) as DeadEnemy;
+            sprtRend.sprite = sprt;
             GameObject ammoClone = Instantiate(ammo, transform.position + transform.TransformDirection(-Vector3.up) * 0.75f, Quaternion.identity);
-            Destroy(gameObject);
+            isWrecked = true;
+            spawnerScript.enemyCount -= 1;
+            spawnerScript.score += 1;
         }
 
         else if (col.gameObject.tag == "static"){
             isWrecked = true;
             isChasing = false;
+            spawnerScript.enemyCount -= 1;
         }
 
         else if (col.gameObject.tag == "ammo"){
+            spawnerScript.enemyCount -= 1;
             Explosion explosionClone = Instantiate(explosion, col.gameObject.transform.position, Quaternion.identity);
-            DeadEnemy deadEnemyClone = Instantiate(deadEnemy, transform.position, transform.rotation) as DeadEnemy;
             GameObject ammoClone = Instantiate(ammo, transform.position + transform.TransformDirection(-Vector3.up) * 0.75f, Quaternion.identity);
-            Destroy(gameObject);
             Destroy(col.gameObject);
+            isWrecked = true;
+            spawnerScript.score += 1;
         }
     }
 }

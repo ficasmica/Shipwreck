@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5315956567868380015}
   m_Layer: 0
   m_Name: EnemySpawner
-  m_TagString: Untagged
+  m_TagString: suicide
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -44,3 +44,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: {fileID: 9193517605714400178, guid: 2128ce26d21776a44b6e2fec4c445d93, type: 3}
+  enemyCount: 0
