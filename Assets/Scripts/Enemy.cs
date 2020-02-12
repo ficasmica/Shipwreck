@@ -29,6 +29,7 @@ public class Enemy : MonoBehaviour
     private SpriteRenderer sprtRend;
     public Sprite sprt;
     private float deathTime = 5f;
+    public Explosion bigExplosion;
 
     void Start(){
         sprtRend = GetComponent<SpriteRenderer>();
@@ -114,10 +115,9 @@ public class Enemy : MonoBehaviour
             spawnerScript.enemyCount -= 1;
         }
 
-        else if (col.gameObject.tag == "ammo"){
+        else if (col.gameObject.tag == "bomb"){
             spawnerScript.enemyCount -= 1;
             sprtRend.sprite = sprt;
-            Explosion explosionClone = Instantiate(explosion, col.gameObject.transform.position, Quaternion.identity);
             GameObject ammoClone = Instantiate(ammo, transform.position + transform.TransformDirection(-Vector3.up) * 0.75f, Quaternion.identity);
             Destroy(col.gameObject);
             isWrecked = true;

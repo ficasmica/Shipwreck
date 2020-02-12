@@ -137,6 +137,18 @@ public class Ship : MonoBehaviour
             }
         }
 
+        else if (col.gameObject.tag == "bomb"){
+            if (n < 1){
+                n += 2;
+                sprtRend.sprite = sprites[n];
+            }
+            else{
+                sprtRend.sprite = sprites[3];
+                isWrecked = true;
+                canShoot = false;
+            }
+        }
+
         else if (col.gameObject.tag == "static"){
             isWrecked = true;
             canShoot = false;

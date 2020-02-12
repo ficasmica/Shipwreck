@@ -430,11 +430,15 @@ MonoBehaviour:
   timeBetweenShots: 3
   deadEnemy: {fileID: 7410940262745377601, guid: e9760a5db7f52aa4ca9715c22977d85c,
     type: 3}
-  ammo: {fileID: 3215093079557223233, guid: 86e89485811839a41bdf463d94290496, type: 3}
+  ammo: {fileID: 8878540768024477895, guid: 06e63b2f2d569754faebdf5845f3b95a, type: 3}
   explosion: {fileID: 7683787825902111488, guid: e39618dca515ba84797c68139cabaf74,
     type: 3}
   spawner: {fileID: 0}
   sprt: {fileID: 21300000, guid: f750e227f8f3bfc4095242b3f43c165c, type: 3}
+  bigExplosion: {fileID: 8847974160990317832, guid: 6841182e948b7bb41aede780cb8a2b25,
+    type: 3}
+  explosionHitBox: {fileID: 7136718278529231265, guid: 9cccabbdcac1a4d40b7f29ec38ff47bc,
+    type: 3}
 --- !u!1 &7620140720864749118
 GameObject:
   m_ObjectHideFlags: 0

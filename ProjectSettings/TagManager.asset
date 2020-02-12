@@ -13,6 +13,8 @@ TagManager:
   - ammo
   - island
   - suicide
+  - bomb
+  - exphitbox
   layers:
   - Default
   - TransparentFX
