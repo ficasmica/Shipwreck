@@ -105,6 +105,7 @@ public class Enemy : MonoBehaviour
             sprtRend.sprite = sprt;
             GameObject ammoClone = Instantiate(ammo, transform.position + transform.TransformDirection(-Vector3.up) * 0.75f, Quaternion.identity);
             isWrecked = true;
+            canShoot = false;
             spawnerScript.enemyCount -= 1;
             spawnerScript.score += 1;
         }
@@ -112,6 +113,7 @@ public class Enemy : MonoBehaviour
         else if (col.gameObject.tag == "static"){
             isWrecked = true;
             isChasing = false;
+            canShoot = false;
             spawnerScript.enemyCount -= 1;
         }
 
@@ -120,6 +122,7 @@ public class Enemy : MonoBehaviour
             sprtRend.sprite = sprt;
             GameObject ammoClone = Instantiate(ammo, transform.position + transform.TransformDirection(-Vector3.up) * 0.75f, Quaternion.identity);
             Destroy(col.gameObject);
+            canShoot = false;
             isWrecked = true;
             spawnerScript.score += 1;
         }
