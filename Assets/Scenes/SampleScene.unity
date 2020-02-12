@@ -1423,6 +1423,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemySpawner
       objectReference: {fileID: 0}
+    - target: {fileID: 5315956567868380014, guid: 94b318ad3e313e84a8d1d33dd4c92dd9,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5315956567868380015, guid: 94b318ad3e313e84a8d1d33dd4c92dd9,
         type: 3}
       propertyPath: scoreLabel
