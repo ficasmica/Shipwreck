@@ -11,6 +11,7 @@ public class EnemySpawner : MonoBehaviour
     private float spawnTimer;
     public int score;
     public Text scoreLabel;
+    public Ship ship;
 
     void Start(){
         spawnTimer = 0f;
@@ -36,7 +37,8 @@ public class EnemySpawner : MonoBehaviour
         else{
             return;
         }
-        
-        scoreLabel.text = "Score: " + score;
+        if (!ship.isWrecked){
+            scoreLabel.text = "Score: " + score;
+        }
     }
 }

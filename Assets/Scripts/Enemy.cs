@@ -115,6 +115,7 @@ public class Enemy : MonoBehaviour
 
         else if (col.gameObject.tag == "ammo"){
             spawnerScript.enemyCount -= 1;
+            sprtRend.sprite = sprt;
             Explosion explosionClone = Instantiate(explosion, col.gameObject.transform.position, Quaternion.identity);
             GameObject ammoClone = Instantiate(ammo, transform.position + transform.TransformDirection(-Vector3.up) * 0.75f, Quaternion.identity);
             Destroy(col.gameObject);

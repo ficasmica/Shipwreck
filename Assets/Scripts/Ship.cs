@@ -139,6 +139,7 @@ public class Ship : MonoBehaviour
 
         else if (col.gameObject.tag == "static"){
             isWrecked = true;
+            canShoot = false;
         }
 
         else if (col.gameObject.tag == "ammo"){

@@ -1067,7 +1067,7 @@ MonoBehaviour:
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     m_FontSize: 25
-    m_FontStyle: 0
+    m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 2
     m_MaxSize: 40
@@ -1428,6 +1428,11 @@ PrefabInstance:
       propertyPath: scoreLabel
       value: 
       objectReference: {fileID: 1347827524}
+    - target: {fileID: 5315956567868380015, guid: 94b318ad3e313e84a8d1d33dd4c92dd9,
+        type: 3}
+      propertyPath: ship
+      value: 
+      objectReference: {fileID: 951795618}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 94b318ad3e313e84a8d1d33dd4c92dd9, type: 3}
 --- !u!1 &1705987123

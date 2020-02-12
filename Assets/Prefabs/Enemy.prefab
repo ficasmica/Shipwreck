@@ -380,7 +380,7 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.44, y: 1.04}
+  m_Size: {x: 0.59, y: 1.04}
   m_Direction: 0
 --- !u!50 &4076048410334290835
 Rigidbody2D:
@@ -415,7 +415,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d2c681c03e32a24d93ebb6dbde81b59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: -3370922118311192608, guid: 89c1dab251f868b438f1ea5bc389975b, type: 3}
+  player: {fileID: 0}
   speed: 0.5
   turnSpeed: 40
   isChasing: 1
