@@ -48,7 +48,7 @@ public class Ship : MonoBehaviour
             }
         }
 
-        if (!canShoot){
+        if (!canShoot && !isWrecked){
             shootTimer -= Time.deltaTime;
             fireButtonLeft.GetComponent<Image>().fillAmount += 0.33f * Time.deltaTime;
             fireButtonRight.GetComponent<Image>().fillAmount += 0.33f * Time.deltaTime;
@@ -65,6 +65,7 @@ public class Ship : MonoBehaviour
         transform.Rotate(-Vector3.forward * wheelRot * Time.deltaTime, Space.World);
 
         if (isWrecked){
+            canShoot = false;
             speed = Mathf.Lerp(speed, 0.0f, 0.025f);
             if (speed <= 0.01f){
                 speed = 0f;

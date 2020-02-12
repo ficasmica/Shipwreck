@@ -27,7 +27,7 @@ public class CannonBall : MonoBehaviour
     }
 
     void OnTriggerEnter2D(Collider2D col){
-        if (col.gameObject.tag == "enemy" || col.gameObject.tag == "static" || col.gameObject.tag == "player"){
+        if (col.gameObject.tag == "enemy" || col.gameObject.tag == "static" || col.gameObject.tag == "player" || col.gameObject.tag == "cannonBall"){
             Explosion explosionClone = Instantiate(explosion, transform.position, transform.rotation) as Explosion;
             Destroy(gameObject);
         }
