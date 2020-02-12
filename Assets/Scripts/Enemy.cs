@@ -87,6 +87,7 @@ public class Enemy : MonoBehaviour
         }
 
         if (isWrecked){
+            canShoot = false;
             speed = Mathf.Lerp(speed, 0.0f, 0.025f);
             if (speed <= 0.01f){
                 speed = 0f;
